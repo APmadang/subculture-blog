@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>서브컬쳐 앞마당</title>
+  <style>
+    :root {
+      --dark-bg: #1A1F2B;
+      --dark-card: #2C3242;
+      --dark-text: #EAEAEA;
+      --dark-accent: #D4A849;
+      --dark-highlight: #D15A5A;
+
+      --light-bg: #F5F9FF;
+      --light-card: #ffffff;
+      --light-text: #1A1A1A;
+      --light-accent: #1E90FF;
+      --light-highlight: #FF69B4;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Pretendard', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.light-mode {
+      background-color: var(--light-bg);
+      color: var(--light-text);
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    .toggle {
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+
+    .toggle button {
+      background: none;
+      border: 1px solid var(--dark-accent);
+      color: var(--dark-accent);
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    body.light-mode .toggle button {
+      border-color: var(--light-accent);
+      color: var(--light-accent);
+    }
+
+    .grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+
+    .card {
+      background-color: var(--dark-card);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    body.light-mode .card {
+      background-color: var(--light-card);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card .content {
+      padding: 1rem;
+    }
+
+    .card .title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .card .description {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="toggle">
+      <button onclick="toggleMode()">테마 전환</button>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <img src="https://source.unsplash.com/random/400x200?tech" alt="썸네일" />
+        <div class="content">
+          <div class="title">정보 카드 제목</div>
+          <div class="description">여기에 정보를 소개하는 설명이 들어갑니다. 깔끔하고 간결한 스타일로 읽기 쉽습니다.</div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/random/400x200?ai" alt="썸네일" />
+        <div class="content">
+          <div class="title">다른 정보 카드</div>
+          <div class="description">카드 레이아웃으로 구성되어 있으며, 썸네일 이미지가 강조되는 구조입니다.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('light-mode');
+    }
+  </script>
+</body>
+</html>
